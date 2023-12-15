@@ -12,7 +12,11 @@ public class Person {
     Animal animal;
     @Autowired
     Student student;
-
+    /*@Autowired
+    Samosa samosa;*/
+    @Autowired
+    @Qualifier("samosa2")  //This can be used instead of @Primary annotation
+    Samosa samosa;
     /*@Autowired
     public Person(Animal animal,Student student){
         System.out.println("Calling constructor  : autowiring");
@@ -40,6 +44,8 @@ public class Person {
 */
     public void playWithAnimal(){
         animal.play();
+        student.detail();
+        samosa.eat();
     }
 
 

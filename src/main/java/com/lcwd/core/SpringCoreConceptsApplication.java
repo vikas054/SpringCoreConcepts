@@ -2,6 +2,7 @@ package com.lcwd.core;
 
 import com.lcwd.core.couple.*;
 import com.lcwd.core.scope.Pepsi;
+import com.lcwd.core.scope.Soda;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -33,7 +34,7 @@ public class SpringCoreConceptsApplication {
 
 
 		// we can create multiple context in a spring application
-		ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class, args);
+		//ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class, args);
 //		Person personBean = applicationContext.getBean(Person.class);
 //		personBean.playWithAnimal();
 
@@ -47,13 +48,23 @@ public class SpringCoreConceptsApplication {
 
 		//Bean Scope
 		//First request for Pepsi Bean
-		Pepsi pepsi = applicationContext.getBean(Pepsi.class);
+/*		Pepsi pepsi = applicationContext.getBean(Pepsi.class);
 		System.out.println(pepsi);
 		pepsi.drink();
 
 		Pepsi pepsi2 = applicationContext.getBean(Pepsi.class);
 		System.out.println(pepsi2);
 		pepsi2.drink();
+*/
+		ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class,args);
+		Pepsi pepsi = applicationContext.getBean(Pepsi.class);
+		System.out.println(pepsi);
+		Soda soda = pepsi.getSoda();
+		System.out.println(soda);
+		Pepsi pepsi2 = applicationContext.getBean(Pepsi.class);
+		System.out.println(pepsi2);
+		Soda soda2 = pepsi2.getSoda();
+		System.out.println(soda2);
 
 		System.out.println("ended");
 	}

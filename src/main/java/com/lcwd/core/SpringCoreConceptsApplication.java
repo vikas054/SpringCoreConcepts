@@ -1,6 +1,7 @@
 package com.lcwd.core;
 
 import com.lcwd.core.couple.*;
+import com.lcwd.core.scope.Pepsi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -9,6 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import test.Test;
+
+import java.sql.SQLOutput;
 
 @SpringBootApplication
 //@ComponentScan(basePackages = {"package1"."package2","package2"})
@@ -29,10 +32,10 @@ public class SpringCoreConceptsApplication {
 		//@ComponentScan(basePackages = {"package1"."pakage2","pakage2"})
 
 
-
+		// we can create multiple context in a spring application
 		ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class, args);
-		Person personBean = applicationContext.getBean(Person.class);
-		personBean.playWithAnimal();
+//		Person personBean = applicationContext.getBean(Person.class);
+//		personBean.playWithAnimal();
 
 		/*Test test = applicationContext.getBean(Test.class);
 		test.testing();*/
@@ -41,6 +44,17 @@ public class SpringCoreConceptsApplication {
 //		Animal dog = applicationContext.getBean("dog",Animal.class);
 //		cat.play();
 //		dog.play();
+
+		//Bean Scope
+		//First request for Pepsi Bean
+		Pepsi pepsi = applicationContext.getBean(Pepsi.class);
+		System.out.println(pepsi);
+		pepsi.drink();
+
+		Pepsi pepsi2 = applicationContext.getBean(Pepsi.class);
+		System.out.println(pepsi2);
+		pepsi2.drink();
+
 		System.out.println("ended");
 	}
 //declaring the bean using @Bean

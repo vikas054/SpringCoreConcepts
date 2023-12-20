@@ -56,7 +56,7 @@ public class SpringCoreConceptsApplication {
 		System.out.println(pepsi2);
 		pepsi2.drink();
 */
-		ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class,args);
+	/*	ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class,args);
 		Pepsi pepsi = applicationContext.getBean(Pepsi.class);
 		System.out.println(pepsi);
 		Soda soda = pepsi.getSoda();
@@ -65,6 +65,9 @@ public class SpringCoreConceptsApplication {
 		System.out.println(pepsi2);
 		Soda soda2 = pepsi2.getSoda();
 		System.out.println(soda2);
+*/
+		ApplicationContext applicationContext = SpringApplication.run(SpringCoreConceptsApplication.class,args);
+		com.lcwd.core.lifecycle.Student student = applicationContext.getBean("student5",com.lcwd.core.lifecycle.Student.class);
 
 		System.out.println("ended");
 	}
